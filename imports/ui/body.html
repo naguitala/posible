@@ -1,0 +1,31 @@
+<body>
+  <div class="container">
+    <header>
+      <h1>Inventory ({{incompleteCount}})</h1>
+
+      <label class="hide-completed">
+        <input type="checkbox" />
+        Hide Completed Items
+      </label>
+
+      {{> loginButtons}}
+
+      {{#if currentUser}}
+        <form class="new-item">
+          <input type="text" name="text" placeholder="Type to add new items" />
+        </form>
+      {{/if}}
+    </header>
+
+    <ul>
+      {{#each items}}
+        {{> item}}
+      {{/each}}
+    </ul>
+  </div>
+
+</body>
+
+<template name="item">
+  <li>{{text}}</li>
+</template>
